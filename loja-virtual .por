@@ -90,5 +90,19 @@ escreva ("=== MENU PRINCIPAL ===")
  {
      se (quantidade_temp > 0 e quantidade_temp <= estoque_prod1) {
 
+    } senao {
+        escreva("Produto inválido!\n")
+    }
+
+    escreva("Pressione ENTER para voltar ao menu...")
+    leia(tecla_pausa)
+    pare
+
+    // ==========================================
+    // R - READ (Visualizar o Carrinho)
+    // ==========================================
+    caso 2:
+        limpa()
+        escreva("--- MEU CARRINHO DE COMPRAS ---\n")
 
  
