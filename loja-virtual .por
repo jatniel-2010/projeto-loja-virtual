@@ -394,7 +394,6 @@ escreva ("Opção inválida! Processando valor normal.")
 senao
 {
 
-  escreva("Carrinho vazio. Compra cancelada.")
-
-
-
+  escreva("Carrinho vazio. Compra cancelada.") 
+  }
+} 
