@@ -26,25 +26,25 @@ programa
         real valor_final = 0.0
 
 // 1. LAÇO PRINCIPAL DO SISTEMA
-    enquanto (opcao_menu_principal != 0)
+    enquanto ( opcao_menu_principal != 0 )
 {
     // Limpa a tela a cada iteração para manter o menu organizado
     limpa()
     
-    escreva("=== BEM-VINDO À NOSSA LOJA VIRTUAL ===")
-    escreva("---------------------------------------")
-    escreva("MENU PRINCIPAL") 
+    escreva(" === BEM-VINDO À NOSSA LOJA VIRTUAL === ")
+    escreva(" --------------------------------------- ")
+    escreva(" MENU PRINCIPAL ") 
 
-    escreva("1. Ver Produtos e Adicionar ao Carrinho (CREATE)")
-    escreva("2. Ver Meus Itens no Carrinho (READ)")
-    escreva("3. Alterar Quantidade no Carrinho (UPDATE)")
-    escreva("4. Remover Item do Carrinho (DELETE)")
-    escreva("0. Finalizar Compra e Ir ao Pagamento")
+    escreva(" 1. Ver Produtos e Adicionar ao Carrinho (CREATE) ")
+    escreva(" 2. Ver Meus Itens no Carrinho (READ) ")
+    escreva(" 3. Alterar Quantidade no Carrinho (UPDATE) ")
+    escreva(" 4. Remover Item do Carrinho (DELETE) ")
+    escreva(" 0. Finalizar Compra e Ir ao Pagamento ")
 
-    escreva("Escolha uma opção: ")
-    leia(opcao_menu_principal)
+    escreva(" Escolha uma opção: ")
+    leia( opcao_menu_principal )
 
-    escolha (opcao_menu_principal)
+    escolha ( opcao_menu_principal )
 {
     // =========================================================
     // C - CREATE (Adicionar Itens ao Carrinho)
@@ -52,56 +52,56 @@ programa
 
   caso 1:
     limpa()
-    escreva("--- CATÁLOGO DE PRODUTOS ---\n")
-    escreva("1. Camisa Esportiva (Estoque: ", estoque_prod1, ") - R$ ", preco_prod1, "\n")
-    escreva("2. Boné Casual       (Estoque: ", estoque_prod2, ") - R$ ", preco_prod2, "\n")
-    escreva("3. Tênis de Corrida  (Estoque: ", estoque_prod3, ") - R$ ", preco_prod3, "\n")
+    escreva(" --- CATÁLOGO DE PRODUTOS ---\n ")
+    escreva(" 1. Camisa Esportiva (Estoque: ", estoque_prod1, ") - R$ ", preco_prod1, "\n ")
+    escreva(" 2. Boné Casual       (Estoque: ", estoque_prod2, ") - R$ ", preco_prod2, "\n ")
+    escreva(" 3. Tênis de Corrida  (Estoque: ", estoque_prod3, ") - R$ ", preco_prod3, "\n ")
     
-    escreva("\nEscolha o produto que deseja adicionar: ")
-    leia(opcao_crud)
+    escreva(" \nEscolha o produto que deseja adicionar: ")
+    leia( opcao_crud )
     
-    escreva("Digite a quantidade desejada: ")
-    leia(quantidade_temp)
+    escreva(" Digite a quantidade desejada: ")
+    leia( quantidade_temp )
     
-    se (opcao_crud == 1)
+    se ( opcao_crud == 1 )
     {
-        se (quantidade_temp > 0 e quantidade_temp <= estoque_prod1) {
+        se ( quantidade_temp > 0 e quantidade_temp <= estoque_prod1 ) {
 
             qtd_carrinho_prod1 = qtd_carrinho_prod1 + quantidade_temp
         estoque_prod1 = estoque_prod1 - quantidade_temp
-        escreva("Item adicionado ao carrinho com sucesso!")
+        escreva(" Item adicionado ao carrinho com sucesso! ")
     } senao {
-        escreva("Quantidade inválida ou estoque insuficiente!")
+        escreva(" Quantidade inválida ou estoque insuficiente! ")
     }
 }
-senao se (opcao_crud == 2)
+senao se ( opcao_crud == 2 )
 {
-    se (quantidade_temp > 0 e quantidade_temp <= estoque_prod2) {
+    se ( quantidade_temp > 0 e quantidade_temp <= estoque_prod2 ) {
         qtd_carrinho_prod2 = qtd_carrinho_prod2 + quantidade_temp
         estoque_prod2 = estoque_prod2 - quantidade_temp
-        escreva("Item adicionado ao carrinho com sucesso!")
+        escreva(" Item adicionado ao carrinho com sucesso! ")
    
        } senao {
-        escreva("Quantidade inválida ou estoque insuficiente!\n")
+        escreva(" Quantidade inválida ou estoque insuficiente!\n ")
     }
 }
-senao se (opcao_crud == 3)
+senao se ( opcao_crud == 3 )
 {
-    se (quantidade_temp > 0 e quantidade_temp <= estoque_prod3) {
+    se ( quantidade_temp > 0 e quantidade_temp <= estoque_prod3 ) {
         qtd_carrinho_prod3 = qtd_carrinho_prod3 + quantidade_temp
         estoque_prod3 = estoque_prod3 - quantidade_temp
-        escreva("Item adicionado ao carrinho com sucesso!\n")
+        escreva(" Item adicionado ao carrinho com sucesso!\n ")
     } senao {
-        escreva("Quantidade inválida ou estoque insuficiente!\n")
+        escreva(" Quantidade inválida ou estoque insuficiente!\n ")
     }
 }
     }
     senao {
-        escreva("Produto inválido!\n")
+        escreva(" Produto inválido!\n ")
     }
 
-    escreva("\nPressione ENTER para voltar ao menu...")
-    leia(tecla_pausa)
+    escreva(" \nPressione ENTER para voltar ao menu... ")
+    leia( tecla_pausa )
     pare
 
     // ==========================================================
@@ -109,29 +109,29 @@ senao se (opcao_crud == 3)
     // ==========================================================
     caso 2:
         limpa()
-        escreva("--- MEU CARRINHO DE COMPRAS ---\n")
+        escreva(" --- MEU CARRINHO DE COMPRAS ---\n ")
 
 
-se (qtd_carrinho_prod1 == 0 e qtd_carrinho_prod2 == 0 e qtd_carrinho_prod3 == 0)
+se ( qtd_carrinho_prod1 == 0 e qtd_carrinho_prod2 == 0 e qtd_carrinho_prod3 == 0 )
 {
-    escreva("Seu carrinho está vazio.")
+    escreva(" Seu carrinho está vazio. ")
 }
 senao
 {
-    se (qtd_carrinho_prod1 > 0) {
-        escreva("- ", qtd_carrinho_prod1, "x Camisa Esportiva (R$ ", (qtd_carrinho_prod1 * preco_prod1), ")")
+    se ( qtd_carrinho_prod1 > 0 ) {
+        escreva(" - ", qtd_carrinho_prod1, "x Camisa Esportiva (R$ ", (qtd_carrinho_prod1 * preco_prod1 ), ")")
     }
-    se (qtd_carrinho_prod2 > 0) {
+    se ( qtd_carrinho_prod2 > 0 ) {
         escreva("- ", qtd_carrinho_prod2, "x Boné Casual (R$ ", (qtd_carrinho_prod2 * preco_prod2), ")")
     }
-    se (qtd_carrinho_prod3 > 0) {
+    se ( qtd_carrinho_prod3 > 0 ) {
         escreva("- ", qtd_carrinho_prod3, "x Tênis de Corrida (R$ ", (qtd_carrinho_prod3 * preco_prod3), ")")
     }
 }
 
 	}
-	escreva("Pressione ENTER para voltar ao menu...")
-	leia(tecla_pausa)
+	escreva(" Pressione ENTER para voltar ao menu... ")
+	leia( tecla_pausa )
 	pare
 
 	// ===================================================
@@ -139,64 +139,63 @@ senao
 	// ===================================================
 	caso 3:
 		limpa()
-		escreva("--- ALTERAR QUANTIDADE NO CARRINHO ---")
-		escreva("1. Camisa Esportiva (No carrinho: ", qtd_carrinho_prod1, ")
-		escreva("2. Boné Casual      (No carrinho: ", qtd_carrinho_prod2, ")
-		escreva("3. Tênis de Corrida (No carrinho: ", qtd_carrinho_prod3,  ")
-        escreva("Escolha o item para alterar a quantidade: ")
-        leia(opcao_crud)
+		escreva(" --- ALTERAR QUANTIDADE NO CARRINHO --- ")
+		escreva(" 1. Camisa Esportiva (No carrinho: ", qtd_carrinho_prod1, ")
+		escreva(" 2. Boné Casual      (No carrinho: ", qtd_carrinho_prod2, ")
+		escreva(" 3. Tênis de Corrida (No carrinho: ", qtd_carrinho_prod3,  ")
+        escreva(" Escolha o item para alterar a quantidade: ")
+        leia( opcao_crud )
 
-        se (opcao_crud == 1)
+        se ( opcao_crud == 1 )
         {
             estoque_prod1 = estoque_prod1 + qtd_carrinho_prod1
-            escreva("Digite a NOVA quantidade total para este item: ")
-            leia(quantidade_temp)
+            escreva(" Digite a NOVA quantidade total para este item: ")
+            leia( quantidade_temp )
 
-            se (quantidade_temp >= 0 e quantidade_temp <= estoque_prod1) {
+            se ( quantidade_temp >= 0 e quantidade_temp <= estoque_prod1 ) {
                 qtd_carrinho_prod1 = quantidade_temp
                 estoque_prod1 = estoque_prod1 - quantidade_temp
-                escreva("Quantidade atualizada com sucesso!")
+                escreva(" Quantidade atualizada com sucesso! ")
             } senao {
                 estoque_prod1 = estoque_prod1 - qtd_carrinho_prod1
-                escreva("Quantidade inválida ou acima do estoque disponível!
-")
+                escreva(" Quantidade inválida ou acima do estoque disponível!")
         }
     }
-    senao se (opcao_crud == 2)
+    senao se ( opcao_crud == 2 )
     {
         estoque_prod2 = estoque_prod2 + qtd_carrinho_prod2
-        escreva("Digite a NOVA quantidade total para este item: ")
-        leia(quantidade_temp)
+        escreva(" Digite a NOVA quantidade total para este item: ")
+        leia( quantidade_temp )
 
-        se (quantidade_temp >= 0 e quantidade_temp <= estoque_prod2) {
+        se ( quantidade_temp >= 0 e quantidade_temp <= estoque_prod2 ) {
             qtd_carrinho_prod2 = quantidade_temp
             estoque_prod2 = estoque_prod2 - quantidade_temp
-            escreva("Quantidade atualizada com sucesso!")
+            escreva(" Quantidade atualizada com sucesso! ")
         } senao {
             estoque_prod2 = estoque_prod2 - qtd_carrinho_prod2
-            escreva("Quantidade inválida ou acima do estoque disponível!")
+            escreva(" Quantidade inválida ou acima do estoque disponível! ")
         }
     }
-    senao se (opcao_crud == 3)
+    senao se ( opcao_crud == 3 )
     {
         estoque_prod3 = estoque_prod3 + qtd_carrinho_prod3
-        escreva("Digite a NOVA quantidade total para este item: ")
-        leia(quantidade_temp)
+        escreva(" Digite a NOVA quantidade total para este item: ")
+        leia( quantidade_temp )
         
-        se (quantidade_temp >= 0 e quantidade_temp <= estoque_prod3) {
+        se ( quantidade_temp >= 0 e quantidade_temp <= estoque_prod3 ) {
             qtd_carrinho_prod3 = quantidade_temp
             estoque_prod3 = estoque_prod3 - quantidade_temp
-            escreva("Quantidade atualizada com sucesso!")
+            escreva(" Quantidade atualizada com sucesso! ")
         } senao {
             estoque_prod3 = estoque_prod3 - qtd_carrinho_prod3
-                  escreva("Quantidade inválida ou acima do estoque disponível!\n")
+                  escreva(" Quantidade inválida ou acima do estoque disponível!\n ")
         }
     }
     senao {
-        escreva("Opção inválida!\n")
+        escreva(" Opção inválida!\n ")
     }
 
-    escreva("\nPressione ENTER para voltar ao menu...")
+    escreva(" \nPressione ENTER para voltar ao menu... ")
     leia(tecla_pausa)
     pare
 
@@ -205,69 +204,69 @@ senao
     // =================================================================
     caso 4:
     limpa()
-escreva("--- REMOVER ITEM DO CARRINHO ---")
+escreva(" --- REMOVER ITEM DO CARRINHO --- ")
 
-escreva("1. Camisa Esportiva (No carrinho: ", qtd_carrinho_prod1, ")")
-escreva("2. Boné Casual       (No carrinho: ", qtd_carrinho_prod2, ")")
-escreva("3. Tênis de Corrida (No carrinho: ", qtd_carrinho_prod3, ")")
+escreva(" 1. Camisa Esportiva (No carrinho: ", qtd_carrinho_prod1, ")")
+escreva(" 2. Boné Casual       (No carrinho: ", qtd_carrinho_prod2, ")")
+escreva(" 3. Tênis de Corrida (No carrinho: ", qtd_carrinho_prod3, ")")
 
-escreva("Escolha o item que deseja remover totalmente: ")
-leia(opcao_crud)
+escreva(" Escolha o item que deseja remover totalmente: ")
+leia( opcao_crud )
 
-se (opcao_crud == 1) {
+se ( opcao_crud == 1 ) {
     estoque_prod1 = estoque_prod1 + qtd_carrinho_prod1
     qtd_carrinho_prod1 = 0
-    escreva("Camisa Esportiva removida do carrinho!")
+    escreva(" Camisa Esportiva removida do carrinho! ")
 }
-senao se (opcao_crud == 2) {
+senao se ( opcao_crud == 2 ) {
     estoque_prod2 = estoque_prod2 + qtd_carrinho_prod2
     qtd_carrinho_prod2 = 0
-    escreva("Boné Casual removido do carrinho!")
+    escreva(" Boné Casual removido do carrinho! ")
 }
-senao se (opcao_crud == 3) {
+senao se ( opcao_crud == 3 ) {
     estoque_prod3 = estoque_prod3 + qtd_carrinho_prod3
     qtd_carrinho_prod3 = 0
-    escreva("Tênis de Corrida removido do carrinho!")
+    escreva(" Tênis de Corrida removido do carrinho! ")
 }
 senao {
-    escreva("Opção inválida!")
+    escreva(" Opção inválida! ")
 }
-        escreva("Pressione ENTER para voltar ao menu...")
-        leia(tecla_pausa)
+        escreva(" Pressione ENTER para voltar ao menu... ")
+        leia( tecla_pausa )
         pare
 
     caso 0:
         limpa()
-        escreva("Encerrando seleção de itens e indo para o pagamento...")
+        escreva(" Encerrando seleção de itens e indo para o pagamento... ")
         pare
 
     caso contrario:
         limpa()
-        escreva("Opção inválida! Escolha uma das opções do menu.")
-        escreva("Pressione ENTER para continuar...")
+        escreva(" Opção inválida! Escolha uma das opções do menu. ")
+        escreva(" Pressione ENTER para continuar... ")
 
-		leia(tecla_pausa)
+		leia( tecla_pausa )
 		pare
 	}
 }
 
 // CALCULAR VALOR TOTAL DO CARRINHO
-valor_total_bruto = (qtd_carrinho_prod1 * preco_prod1) +
-                    (qtd_carrinho_prod2 * preco_prod2) +
-                    (qtd_carrinho_prod3 * preco_prod3)
+valor_total_bruto = ( qtd_carrinho_prod1 * preco_prod1 ) +
+                    ( qtd_carrinho_prod2 * preco_prod2 ) +
+                    ( qtd_carrinho_prod3 * preco_prod3 )
 
 // 2. ETAPA DE PAGAMENTO
 limpa()
-se (valor_total_bruto > 0)
+se ( valor_total_bruto > 0 )
 {
-	escreva("--- FORMA DE PAGAMENTO ---")
-	escreva("\n1. Pagamento via PIX (10% de desconto)")
-	escreva("\n2. Cartão de Crédito (Valor normal)")
+	escreva(" --- FORMA DE PAGAMENTO --- ")
+	escreva(" \n 1. Pagamento via PIX (10% de desconto)" )
+	escreva(" \n 2. Cartão de Crédito (Valor normal)" )
 
-    escreva("Escolha a forma de pagamento: ")
-    leia(opcao_pagamento)
+    escreva(" Escolha a forma de pagamento: ")
+    leia( opcao_pagamento )
 
-    escolha (opcao_pagamento)
+    escolha ( opcao_pagamento )
 {
     caso 1:
         valor_desconto = valor_total_bruto * 0.10
@@ -280,7 +279,7 @@ se (valor_total_bruto > 0)
         pare
 
     caso contrario:
-        escreva("Opção inválida! Processando valor normal.")
+        escreva(" Opção inválida! Processando valor normal. ")
 }
          valor_desconto = 0.0
         valor_final = valor_total_bruto
@@ -289,38 +288,35 @@ se (valor_total_bruto > 0)
 
     // 3. NOTA FISCAL DETALHADA
     limpa()
-    escreva("======================================================\n")
-    escreva("  NOTA FISCAL - LOJA VIRTUAL  \n")
-    escreva("======================================================\n")
-    escreva("Itens comprados:\n\n")
+    escreva(" ====================================================== \n ")
+    escreva("  NOTA FISCAL - LOJA VIRTUAL  \n ")
+    escreva(" ====================================================== \n ")
+    escreva(" Itens comprados:\n \n ")
 
-    se (qtd_carrinho_prod1 > 0) {
+    se ( qtd_carrinho_prod1 > 0 ) {
         // Nota: O final desta linha está cortado na imagem original
         escreva("- ", qtd_carrinho_prod1, "x Camisa Esportiva = R$ ", (qtd_carrinho_prod1 * valor_produto1), "\n")
     }
 	}
-	se (qtd_carrinho_prod2 > 0) {
+	se  ( qtd_carrinho_prod2 > 0 ) {
 		escreva("- ", qtd_carrinho_prod2, "x Boné Casual = R$ ", (qtd_carrinho_pro")
 	}
-	se (qtd_carrinho_prod3 > 0) {
+	se ( qtd_carrinho_prod3 > 0 ) {
 		escreva("- ", qtd_carrinho_prod3, "x Tênis de Corrida = R$ ", (qtd_carrinh")
 	}
 	
-	escreva("---------------------------------------------------------")
-	escreva("Valor total bruto: R$ ", valor_total_bruto, ")
-	escreva("Desconto aplicado: R$ ", valor_desconto, ")
-	escreva("Valor final a pagar: R$ ", valor_final, ")
-	escreva("=========================================================")
-	escreva("Obrigado por comprar conosco!")
+	escreva(" --------------------------------------------------------- ")
+	escreva(" Valor total bruto: R$ ", valor_total_bruto, ")
+	escreva(" Desconto aplicado: R$ ", valor_desconto, ")
+	escreva(" Valor final a pagar: R$ ", valor_final, ")
+	escreva(" ========================================================= ")
+	escreva(" Obrigado por comprar conosco! ")
 	}
 	senao
 	{
-		escreva("Carrinho vazio. Compra cancelada.")
+		escreva(" Carrinho vazio. Compra cancelada. ")
 	}
   }
 }
-
-      
-        
 	}
 }
