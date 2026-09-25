@@ -315,4 +315,17 @@ se ( valor_total_bruto > 0 )
 	se ( qtd_carrinho_prod3 > 0 ) {
 		escreva("- ", qtd_carrinho_prod3, "x Tênis de Corrida = R$ ", (qtd_carrinh")
 	}
-	
+		escreva(" --------------------------------------------------------- ")
+	escreva(" Valor total bruto: R$ ", valor_total_bruto, ")
+	escreva(" Desconto aplicado: R$ ", valor_desconto, ")
+	escreva(" Valor final a pagar: R$ ", valor_final, ")
+	escreva(" ========================================================= ")
+	escreva(" Obrigado por comprar conosco! ")
+	}
+	senao
+	{
+		escreva(" Carrinho vazio. Compra cancelada. ")
+	}
+  }
+	}
+}
